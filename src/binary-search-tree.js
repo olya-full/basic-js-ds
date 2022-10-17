@@ -75,7 +75,7 @@ class BinarySearchTree {
       } else if (data > node.data){
         node.right = removeNode(node.right, data);
         return node;
-      } else {  
+      } 
       if (!node.left && !node.right){
         return null;
       }
@@ -99,16 +99,26 @@ class BinarySearchTree {
       node.left = removeNode(node.left, maxLeftBranch.data);
       return node;
 
-      }
+      
     }
-
   }
 
   min() {
-
+    if (!this.rooty) return;
+    let node = this.rooty;
+    while (node.left){
+      node = node.left;
+    }
+    return node.data;
   }
 
   max() {
+    if (!this.rooty) return;
+    let node = this.rooty;
+    while (node.right){
+      node = node.right;
+    }
+    return node.data;
 
   }
 }
