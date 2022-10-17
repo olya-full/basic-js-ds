@@ -32,11 +32,35 @@ class BinarySearchTree {
   }
 
   has(data) {
+    return hasData(this.rooty, data);
 
+    function hasData(node, data){
+      if (!node){
+        return false;
+      } else if (node.data == data) {
+        return true;
+      } else if (data < node.data){
+        return hasData(node.left, data);
+      } else if (data > node.data){
+        return hasData(node.right, data);
+      }
+    }
   }
 
   find(data) {
+    return findData(this.rooty, data);
 
+    function findData(node, data){
+      if (!node){
+        return null;
+      } else if (node.data == data) {
+        return node;
+      } else if (data < node.data){
+        return findData(node.left, data);
+      } else if (data > node.data){
+        return findData(node.right, data);
+      }
+    }
   }
 
   remove(data) {
